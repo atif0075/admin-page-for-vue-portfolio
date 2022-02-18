@@ -1,0 +1,30 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.input {
+  @apply p-2 bg-mud outline-none border border-bor-green border-dashed md:w-128 w-full  rounded;
+}
+.routeBtn {
+  @apply hover:text-green border lg:border-dashed lg:py-1 bg-mud py-4 block w-full border-none border-bor-green px-3;
+}
+.navbar {
+  @apply w-full lg:w-2/6 lg:mr-14 top-16 flex-col absolute lg:static z-50 lg:flex justify-between lg:flex-row lg:items-center lg:px-4 font-DMSan font-normal text-base;
+}
+.headerSection {
+  @apply w-full h-16 text-white bg-mud lg:bg-transparent flex justify-between items-center lg:static relative;
+}
+.heading {
+  @apply text-3xl text-center sm:text-4xl font-DM;
+}
+.btnGreen {
+  @apply px-5 py-2 bg-green text-dark focus:ring-offset-light-green duration-300 ease-in-out hover:bg-light-green font-DMSan font-bold rounded-md;
+}
+.contactSection {
+  @apply container mx-auto md:flex md:flex-col text-white items-center px-3 md:px-44 pt-6 lg:pt-0 h-auto font-DMSan;
+}
+.label {
+  @apply block py-2;
+}
