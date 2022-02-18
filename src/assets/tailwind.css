@@ -19,6 +19,9 @@
 .heading {
   @apply text-3xl text-center sm:text-4xl font-DM;
 }
+.heading2 {
+  @apply text-xl text-center sm:text-xl font-bold font-DMSan;
+}
 .btnGreen {
   @apply px-5 py-2 bg-green text-dark focus:ring-offset-light-green duration-300 ease-in-out hover:bg-light-green font-DMSan font-bold rounded-md;
 }
@@ -27,4 +30,13 @@
 }
 .label {
   @apply block py-2;
+}
+.mail {
+  @apply block py-2 text-xl text-green;
+}
+.aboutSection {
+  @apply container mx-auto text-white items-center h-auto min-h-screen px-3 md:px-20 lg:px-44 pt-6 lg:pt-0 font-DMSan;
+}
+.span {
+  @apply text-green font-semibold;
 }

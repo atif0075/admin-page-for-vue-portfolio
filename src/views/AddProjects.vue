@@ -25,7 +25,7 @@
       <div>
         <label class="label">Project Image Link</label>
         <input
-          v-model="link"
+          v-model="Image"
           class="input"
           placeholder="Enter project image link......."
           type="text"
@@ -34,7 +34,7 @@
       <div>
         <label class="label">Project Live Link</label>
         <input
-          v-model="link"
+          v-model="Livelink"
           class="input"
           placeholder="Enter project live link......."
           type="text"
@@ -43,7 +43,7 @@
       <div>
         <label class="label">Project Source Link</label>
         <input
-          v-model="link"
+          v-model="Sourcelink"
           class="input"
           placeholder="Enter project source link......."
           type="text"
@@ -72,7 +72,7 @@
 
 <script>
 import { db } from "../firebase/config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
 import smallLoading from "../components/smallLoading.vue";
 
 export default {
@@ -81,7 +81,9 @@ export default {
     return {
       id: "",
       name: "",
-      link: "",
+      Image: "",
+      Livelink: "",
+      Sourcelink: "",
       text: "",
       Add: "Add",
       showLoad: false,
@@ -90,14 +92,17 @@ export default {
   methods: {
     async handleAdd() {
       this.showLoad = true;
-      const Data = collection(db, "Skills");
+      const Data = collection(db, "Projects");
+      this.Add = "Adding";
       try {
-        let data = await addDoc(Data, {
-          name: this.name,
-          link: this.link,
-          text: this.text,
+        await setDoc(doc(Data, this.id.toString()), {
+          pName: this.name,
+          pImage: this.Image,
+          pSource: this.Sourcelink,
+          pLink: this.Livelink,
+          pText: this.text,
         });
-        // firestore.collection("Skills").doc("CUSTOMID").set(data);
+
         this.Add = "Added";
         this.showLoad = false;
         setTimeout(() => {

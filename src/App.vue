@@ -1,15 +1,18 @@
 <template>
-  <div class="bg-dark h-auto min-h-screen">
+  <section class="bg-dark h-auto min-h-screen">
     <Header />
-    <router-view v-slot="{ Component }">
+    <router-view v-slot="{ Component, route }">
       <transition name="fade" mode="out-in">
-        <component :is="Component" />
+        <div :key="route">
+          <component :is="Component" />
+        </div>
       </transition>
     </router-view>
-  </div>
+  </section>
 </template>
 <script>
 import Header from "./components/Header.vue";
+
 export default {
   components: { Header },
 };
@@ -38,5 +41,9 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+* {
+  scrollbar-color: #00dc82 #001e26;
+  scrollbar-width: thin;
 }
 </style>
